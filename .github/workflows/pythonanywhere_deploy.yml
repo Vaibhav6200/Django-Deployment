@@ -12,9 +12,7 @@ jobs:
       - name: Install Django
         run: pip install django
       - name: Output Github Details
-        run: |
-          echo "${{github}}"
-          echo "${{toJSON(github)}}"
+        run: echo "${{toJSON(github)}}"
   deploy:
     needs: test
     runs-on: ubuntu-latest
