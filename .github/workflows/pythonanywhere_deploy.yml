@@ -13,10 +13,8 @@ jobs:
       - name: Deploy to PythonAnywhere
         uses: docker://pythonanywhere/pythonanywhere-deployment-action:v1
         with:
-          # api_token: ${{ secrets.PYTHONANYWHERE_API_TOKEN }}
-          # pythonanywhere_username: ${{ secrets.PYTHONANYWHERE_USERNAME }}
-          api_token: 58202746f1c96e001b87bebc35a4d56c5cc3be00
-          pythonanywhere_username: SolvifyHubBusiness
+          api_token: ${{ secrets.PYTHONANYWHERE_API_TOKEN }}
+          pythonanywhere_username: ${{ secrets.PYTHONANYWHERE_USERNAME }}
           local_project_path: '.'  # Adjust if your project is in a subdirectory
-          remote_working_directory: '/home/${{ secrets.PYTHONANYWHERE_USERNAME }}/SolvifyHub'  
+          remote_working_directory: '/home/${{ secrets.PYTHONANYWHERE_USERNAME }}/Django-Deployment'  
           remote_wsgi_file_path: '/var/www/${{ secrets.PYTHONANYWHERE_USERNAME }}_pythonanywhere_com_wsgi.py'  
