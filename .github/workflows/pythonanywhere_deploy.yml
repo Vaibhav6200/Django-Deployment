@@ -11,6 +11,10 @@ jobs:
         uses: actions/checkout@v4
       - name: Install Django
         run: pip install django
+      - name: Output Github Details
+        run: |
+          echo "${{github}}"
+          echo "${{toJSON(github)}}"
   deploy:
     needs: test
     runs-on: ubuntu-latest
@@ -23,6 +27,6 @@ jobs:
         with:
           api_token: ${{ secrets.PYTHONANYWHERE_API_TOKEN }}
           pythonanywhere_username: ${{ secrets.PYTHONANYWHERE_USERNAME }}
-          local_project_path: '.'  # Adjust if your project is in a subdirectory
+          local_project_path: '.' 
           remote_working_directory: '/home/${{ secrets.PYTHONANYWHERE_USERNAME }}/Django-Deployment'  
           remote_wsgi_file_path: '/var/www/${{ secrets.PYTHONANYWHERE_USERNAME }}_pythonanywhere_com_wsgi.py'  
